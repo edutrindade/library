@@ -13,6 +13,7 @@ const DashboardController = require("./controllers/DashboardController");
 const UserController = require("./controllers/UserController");
 const AddressController = require("./controllers/AddressController");
 const FileController = require("./controllers/FileController");
+const ForgotPasswordController = require("./controllers/ForgotPasswordController");
 
 routes.use((req, res, next) => {
   res.locals.flashSucces = req.flash("success");
@@ -31,6 +32,7 @@ routes.post("/signin", SessionController.store);
 routes.get("/signup", guestMiddleware, UserController.create);
 routes.post("/signup", upload.single("avatar"), UserController.store);
 
+routes.get("/forgot_password", ForgotPasswordController.index);
 routes.use("/", authMiddleware);
 
 routes.get("/logout", SessionController.destroy);

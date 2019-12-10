@@ -4,7 +4,7 @@ class DashboardController {
   async index(req, res) {
     const librarians = await User.findAll({ where: { librarian: true } });
 
-    return res.render("dashboard", { librarians });
+    return res.render("dashboard/index", { librarians });
   }
 }
 

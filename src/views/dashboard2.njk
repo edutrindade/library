@@ -1,0 +1,31 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+  <div class="head">
+    <p>Bem vindo à Biblioteca JK</p>
+    <div class="user">
+      <img src="/files/{{ user.avatar }}"/>
+      <strong>Olá, {{ user.name }}</strong>
+    </div>
+  </div>
+
+  <div class="content">
+    <strong>Olá, {{ user.name }}</strong>
+    <p>Bem vindo à Biblioteca JK</p>
+
+    <ul class="librarians">
+      {% for librarian in librarians %}
+        <li class="librarian">
+          <div>
+            <img src="/files/{{ librarian.avatar }}"/>
+            <strong>{{ librarian.name }}</strong>
+          </div>
+          <a href="/appointments/new/{{ librarian.id }}">+</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/logout" class="logout">Sair</a>
+  </div>
+
+{% endblock %}
